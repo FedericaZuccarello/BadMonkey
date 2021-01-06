@@ -6,6 +6,9 @@ import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
+import Grid from "@material-ui/core/Grid";
+import ItemCardShop from "../smallComponents/ItemCardShop";
+
 //import TitlebarGridList from "../shopItems/TitlebarGridList";
 
 function TabPanel(props) {
@@ -69,7 +72,7 @@ export default function ScrollableTabsButtonAuto(props) {
 
   return (
     <div className={classes.root}>
-      <AppBar position="static" color="default">
+      <AppBar position="sticky" color="default">
         <Tabs
           value={value}
           onChange={handleChange}
@@ -77,7 +80,7 @@ export default function ScrollableTabsButtonAuto(props) {
           textColor="primary"
           variant="scrollable"
           scrollButtons="auto"
-          aria-label="scrollable auto tabs example"
+          aria-label="scrollable auto tabs"
         >
           <LinkTab href="/shop" label="SHOP" {...a11yProps(0)} />
           <LinkTab href="/shop/fucili" label="FUCILI" {...a11yProps(1)} />
@@ -92,7 +95,63 @@ export default function ScrollableTabsButtonAuto(props) {
       </AppBar>
       <TabPanel value={value} index={0}>
         {/* <TitlebarGridList deviceType={props.deviceType} /> */}
-        Item One
+        <Grid
+          container
+          direction="row"
+          justify="center"
+          alignItems="flex-start"
+          spacing={3}
+        >
+          <Grid item xs>
+            <ItemCardShop
+              src="https://i.ibb.co/7CX5Zdv/IMG-20201110-180337m.jpg"
+              price={100}
+              title={"Title"}
+              description={"Description"}
+            />
+          </Grid>
+          <Grid item xs>
+            <ItemCardShop
+              src="https://i.ibb.co/7CX5Zdv/IMG-20201110-180337m.jpg"
+              price={100}
+              title={"Title"}
+              description={"Description"}
+            />
+          </Grid>
+          <Grid item xs>
+            <ItemCardShop
+              src="https://i.ibb.co/7CX5Zdv/IMG-20201110-180337m.jpg"
+              price={100}
+              title={"Title"}
+              description={"Description"}
+            />
+          </Grid>
+
+          <Grid item xs>
+            <ItemCardShop
+              src="https://i.ibb.co/7CX5Zdv/IMG-20201110-180337m.jpg"
+              price={100}
+              title={"Title"}
+              description={"Description"}
+            />
+          </Grid>
+          <Grid item xs>
+            <ItemCardShop
+              src="https://i.ibb.co/7CX5Zdv/IMG-20201110-180337m.jpg"
+              price={100}
+              title={"Title"}
+              description={"Description"}
+            />
+          </Grid>
+          <Grid item xs>
+            <ItemCardShop
+              src="https://i.ibb.co/7CX5Zdv/IMG-20201110-180337m.jpg"
+              price={100}
+              title={"Title"}
+              description={"Description"}
+            />
+          </Grid>
+        </Grid>
       </TabPanel>
       <TabPanel value={value} index={1}>
         Item Two
