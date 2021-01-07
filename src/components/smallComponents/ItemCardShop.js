@@ -8,6 +8,7 @@ import ChatTwoToneIcon from "@material-ui/icons/ChatTwoTone";
 import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import Popover from "@material-ui/core/Popover";
+import Tooltip from "@material-ui/core/Tooltip";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import IconButton from "@material-ui/core/IconButton";
 import ShareIcon from "@material-ui/icons/Share";
@@ -67,15 +68,21 @@ function CardFooterShop() {
   const open = Boolean(anchorEl);
   return (
     <CardActions>
-      <IconButton aria-label="detail" onClick={handlerClick}>
-        <FullscreenExitTwoToneIcon />
-      </IconButton>
-      <IconButton aria-label="add to favorites">
-        <FavoriteIcon />
-      </IconButton>
-      <IconButton aria-label="share">
-        <ShareIcon />
-      </IconButton>
+      <Tooltip title="Ingrandisci" arrow>
+        <IconButton aria-label="detail" onClick={handlerClick}>
+          <FullscreenExitTwoToneIcon />
+        </IconButton>
+      </Tooltip>
+      <Tooltip title="Aggiungi ai preferiti" arrow>
+        <IconButton aria-label="add to favorites">
+          <FavoriteIcon />
+        </IconButton>
+      </Tooltip>
+      <Tooltip title="Condividi" arrow>
+        <IconButton aria-label="share">
+          <ShareIcon />
+        </IconButton>
+      </Tooltip>
       <IconButton
         aria-label="chat"
         aria-owns={open ? "mouse-over-chat" : undefined}
