@@ -63,7 +63,7 @@ const fuciliData = [
     inStock: true,
   },
   {
-    code: "F-000_0",
+    code: "F-001_0",
     img: "https://i.ibb.co/cQx9dpg/F-001-0.jpg",
     title: "F-001",
     type: "fucile",

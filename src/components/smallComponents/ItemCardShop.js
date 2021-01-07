@@ -13,6 +13,9 @@ import FavoriteIcon from "@material-ui/icons/Favorite";
 import IconButton from "@material-ui/core/IconButton";
 import ShareIcon from "@material-ui/icons/Share";
 import FullscreenExitTwoToneIcon from "@material-ui/icons/FullscreenExitTwoTone";
+import Lightbox from "react-awesome-lightbox";
+import "react-awesome-lightbox/build/style.css";
+//import fuciliData from "../dataImg/titledata";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -28,12 +31,21 @@ const useStyles = makeStyles((theme) => ({
 
 export default function ItemCardShop(p) {
   const classes = useStyles();
+  const [showLightbox, setShowLightbox] = React.useState(false);
 
   return (
     <Card className={classes.root} key={p.key}>
       <CardActionArea>
         <CardMedia component="img" alt={p.title} src={p.img} title={p.title} />
-
+        {showLightbox ? (
+          <Lightbox
+            allowRotate={false}
+            image={p.img}
+            onClose={() => {
+              setShowLightbox(false);
+            }}
+          />
+        ) : null}
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
             {p.title}
@@ -46,7 +58,7 @@ export default function ItemCardShop(p) {
           </Typography>
         </CardContent>
       </CardActionArea>
-      <CardFooterShop setShowLightBox={p.setShowLightBox} />
+      <CardFooterShop setShowLightBox={setShowLightbox} />
     </Card>
   );
 }
@@ -54,7 +66,6 @@ export default function ItemCardShop(p) {
 function CardFooterShop({ setShowLightBox = () => {} }) {
   const classes = useStyles();
   const handlerClick = (e) => {
-    console.log(e);
     setShowLightBox(true);
   };
   const [anchorEl, setAnchorEl] = React.useState(null);
