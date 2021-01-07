@@ -8,8 +8,7 @@ import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
 import Grid from "@material-ui/core/Grid";
 import ItemCardShop from "../smallComponents/ItemCardShop";
-
-//import TitlebarGridList from "../shopItems/TitlebarGridList";
+import fuciliData from "../dataImg/titledata";
 
 function TabPanel(props) {
   const { children, value, index, deviceType, ...other } = props;
@@ -94,63 +93,26 @@ export default function ScrollableTabsButtonAuto(props) {
         </Tabs>
       </AppBar>
       <TabPanel value={value} index={0}>
-        {/* <TitlebarGridList deviceType={props.deviceType} /> */}
         <Grid
           container
           direction="row"
           justify="center"
-          alignItems="flex-start"
+          alignItems="center"
           spacing={3}
         >
-          <Grid item xs>
-            <ItemCardShop
-              src="https://i.ibb.co/7CX5Zdv/IMG-20201110-180337m.jpg"
-              price={100}
-              title={"Title"}
-              description={"Description"}
-            />
-          </Grid>
-          <Grid item xs>
-            <ItemCardShop
-              src="https://i.ibb.co/7CX5Zdv/IMG-20201110-180337m.jpg"
-              price={100}
-              title={"Title"}
-              description={"Description"}
-            />
-          </Grid>
-          <Grid item xs>
-            <ItemCardShop
-              src="https://i.ibb.co/7CX5Zdv/IMG-20201110-180337m.jpg"
-              price={100}
-              title={"Title"}
-              description={"Description"}
-            />
-          </Grid>
-
-          <Grid item xs>
-            <ItemCardShop
-              src="https://i.ibb.co/7CX5Zdv/IMG-20201110-180337m.jpg"
-              price={100}
-              title={"Title"}
-              description={"Description"}
-            />
-          </Grid>
-          <Grid item xs>
-            <ItemCardShop
-              src="https://i.ibb.co/7CX5Zdv/IMG-20201110-180337m.jpg"
-              price={100}
-              title={"Title"}
-              description={"Description"}
-            />
-          </Grid>
-          <Grid item xs>
-            <ItemCardShop
-              src="https://i.ibb.co/7CX5Zdv/IMG-20201110-180337m.jpg"
-              price={100}
-              title={"Title"}
-              description={"Description"}
-            />
-          </Grid>
+          {fuciliData.map((fucile) => {
+            return fucile.code ? (
+              <Grid item xs>
+                <ItemCardShop
+                  key={fucile.code}
+                  img={fucile.img}
+                  price={fucile.price}
+                  title={fucile.title}
+                  description={fucile.description}
+                />
+              </Grid>
+            ) : null;
+          })}
         </Grid>
       </TabPanel>
       <TabPanel value={value} index={1}>

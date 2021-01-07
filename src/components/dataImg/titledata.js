@@ -1,0 +1,60 @@
+const fuciliData = [
+  {
+    code: "F-000_0",
+    img: "https://i.ibb.co/7CX5Zdv/F-000-0.jpg",
+    title: "F-000",
+    type: "fucile",
+    price: 130,
+    description: "Descrizione",
+  },
+  {
+    code: "F-000_1",
+    img: "https://i.ibb.co/kXxMsVZ/F-000-1.jpg",
+    title: "F-000",
+    type: "fucile",
+    price: 100,
+    description: "Description",
+  },
+  {
+    code: "F-000_2",
+    img: "https://i.ibb.co/df7v7sQ/F-000-2.jpg",
+    title: "F-000",
+    type: "fucile",
+    price: 100,
+    description: "Description",
+  },
+  {
+    code: "F-000_3",
+    img: "https://i.ibb.co/hYtdYMg/F-000-3.jpg",
+    title: "F-000",
+    type: "fucile",
+    price: 100,
+    description: "Description",
+  },
+  {
+    code: "F-000_4",
+    img: "https://i.ibb.co/nnYYdSR/F-000-4.jpg",
+    title: "F-000",
+    type: "fucile",
+    price: 100,
+    description: "Description",
+  },
+  {
+    code: "F-000_5",
+    img: "https://i.ibb.co/kxNfKxm/F-000-5.jpg",
+    title: "F-000",
+    type: "fucile",
+    price: 100,
+    description: "Description",
+  },
+  {
+    code: "F-000_6",
+    img: "https://i.ibb.co/8sXMxwy/F-000-6.jpg",
+    title: "F-000",
+    type: "fucile",
+    price: 100,
+    description: "Description",
+  },
+];
+
+export default fuciliData;

@@ -6,6 +6,7 @@ import CardMedia from "@material-ui/core/CardMedia";
 import Button from "@material-ui/core/Button";
 import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
+import Icon from "@material-ui/core/Icon";
 
 const useStyles = makeStyles({
   root: {
@@ -14,10 +15,13 @@ const useStyles = makeStyles({
 });
 export default function ItemCardShop(p) {
   const classes = useStyles();
+  const handlerClick = () => {
+    alert("Ho cliccato");
+  };
   return (
-    <Card className={classes.root}>
+    <Card className={classes.root} key={p.key}>
       <CardActionArea>
-        <CardMedia component="img" alt={p.title} src={p.src} title={p.title} />
+        <CardMedia component="img" alt={p.title} src={p.img} title={p.title} />
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
             {p.title}
@@ -31,7 +35,7 @@ export default function ItemCardShop(p) {
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <Button size="small" color="primary">
+        <Button size="small" color="primary" onClick={handlerClick}>
           Dettagli
         </Button>
         <Button size="small" color="primary">
