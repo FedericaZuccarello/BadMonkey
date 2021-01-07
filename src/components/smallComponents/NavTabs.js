@@ -101,7 +101,7 @@ export default function ScrollableTabsButtonAuto(props) {
           spacing={3}
         >
           {fuciliData.map((fucile) => {
-            return fucile.code ? (
+            return fucile.code.substr(fucile.code.length - 2, 2) === "_0" ? (
               <Grid item xs>
                 <ItemCardShop
                   key={fucile.code}

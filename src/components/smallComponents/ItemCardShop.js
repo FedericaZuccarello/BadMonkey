@@ -1,23 +1,33 @@
+import React from "react";
 import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
 import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
-import Button from "@material-ui/core/Button";
+import ChatTwoToneIcon from "@material-ui/icons/ChatTwoTone";
 import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
-import Icon from "@material-ui/core/Icon";
+import Popover from "@material-ui/core/Popover";
+import FavoriteIcon from "@material-ui/icons/Favorite";
+import IconButton from "@material-ui/core/IconButton";
+import ShareIcon from "@material-ui/icons/Share";
+import FullscreenExitTwoToneIcon from "@material-ui/icons/FullscreenExitTwoTone";
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
   root: {
     maxWidth: 345,
   },
-});
+  popover: {
+    pointerEvents: "none",
+  },
+  paper: {
+    padding: theme.spacing(1),
+  },
+}));
+
 export default function ItemCardShop(p) {
   const classes = useStyles();
-  const handlerClick = () => {
-    alert("Ho cliccato");
-  };
+
   return (
     <Card className={classes.root} key={p.key}>
       <CardActionArea>
@@ -34,14 +44,71 @@ export default function ItemCardShop(p) {
           </Typography>
         </CardContent>
       </CardActionArea>
-      <CardActions>
-        <Button size="small" color="primary" onClick={handlerClick}>
-          Dettagli
-        </Button>
-        <Button size="small" color="primary">
-          Condividi
-        </Button>
-      </CardActions>
+      <CardFooterShop />
     </Card>
+  );
+}
+
+function CardFooterShop() {
+  const classes = useStyles();
+  const handlerClick = () => {
+    alert("Ho cliccato");
+  };
+  const [anchorEl, setAnchorEl] = React.useState(null);
+
+  const handlePopoverOpen = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handlePopoverClose = () => {
+    setAnchorEl(null);
+  };
+
+  const open = Boolean(anchorEl);
+  return (
+    <CardActions>
+      <IconButton aria-label="detail" onClick={handlerClick}>
+        <FullscreenExitTwoToneIcon />
+      </IconButton>
+      <IconButton aria-label="add to favorites">
+        <FavoriteIcon />
+      </IconButton>
+      <IconButton aria-label="share">
+        <ShareIcon />
+      </IconButton>
+      <IconButton
+        aria-label="chat"
+        aria-owns={open ? "mouse-over-chat" : undefined}
+        aria-haspopup="true"
+        onMouseEnter={handlePopoverOpen}
+        onMouseLeave={handlePopoverClose}
+      >
+        <ChatTwoToneIcon htmlColor="green" />
+      </IconButton>
+      <Popover
+        id="mouse-over-chat"
+        className={classes.popover}
+        classes={{
+          paper: classes.paper,
+        }}
+        open={open}
+        anchorEl={anchorEl}
+        anchorOrigin={{
+          vertical: "bottom",
+          horizontal: "left",
+        }}
+        transformOrigin={{
+          vertical: "top",
+          horizontal: "left",
+        }}
+        onClose={handlePopoverClose}
+        disableRestoreFocus
+      >
+        <Typography>
+          Invia messaggio su whatsapp per maggiori informazioni su questo
+          articolo.
+        </Typography>
+      </Popover>
+    </CardActions>
   );
 }
