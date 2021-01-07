@@ -9,6 +9,8 @@ import Box from "@material-ui/core/Box";
 import Grid from "@material-ui/core/Grid";
 import ItemCardShop from "../smallComponents/ItemCardShop";
 import fuciliData from "../dataImg/titledata";
+import Lightbox from "react-awesome-lightbox";
+import "react-awesome-lightbox/build/style.css";
 
 function TabPanel(props) {
   const { children, value, index, deviceType, ...other } = props;
@@ -64,6 +66,10 @@ const useStyles = makeStyles((theme) => ({
 export default function ScrollableTabsButtonAuto(props) {
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
+  const [showLightbox, setShowLightbox] = React.useState(false);
+  React.useEffect(() => {
+    console.log(showLightbox);
+  }, [showLightbox]);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -109,7 +115,22 @@ export default function ScrollableTabsButtonAuto(props) {
                   price={fucile.price}
                   title={fucile.title}
                   description={fucile.description}
+                  setShowLightBox={setShowLightbox}
+                  {...fucile}
                 />
+                {showLightbox ? (
+                  <Lightbox
+                    images={[
+                      {
+                        url: "https://i.ibb.co/7CX5Zdv/F-000-0.jpg",
+                        title: "image title 1",
+                      },
+                    ]}
+                    onClose={() => {
+                      setShowLightbox(false);
+                    }}
+                  />
+                ) : null}
               </Grid>
             ) : null;
           })}

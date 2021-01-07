@@ -33,6 +33,7 @@ export default function ItemCardShop(p) {
     <Card className={classes.root} key={p.key}>
       <CardActionArea>
         <CardMedia component="img" alt={p.title} src={p.img} title={p.title} />
+
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
             {p.title}
@@ -45,15 +46,16 @@ export default function ItemCardShop(p) {
           </Typography>
         </CardContent>
       </CardActionArea>
-      <CardFooterShop />
+      <CardFooterShop setShowLightBox={p.setShowLightBox} />
     </Card>
   );
 }
 
-function CardFooterShop() {
+function CardFooterShop({ setShowLightBox = () => {} }) {
   const classes = useStyles();
-  const handlerClick = () => {
-    alert("Ho cliccato");
+  const handlerClick = (e) => {
+    console.log(e);
+    setShowLightBox(true);
   };
   const [anchorEl, setAnchorEl] = React.useState(null);
 
