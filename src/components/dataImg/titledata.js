@@ -64,7 +64,7 @@ const fuciliData = [
   },
   {
     code: "F-001_0",
-    img: "https://i.ibb.co/cQx9dpg/F-001-0.jpg",
+    img: "https://i.ibb.co/cQx9dpg/F-017-0.jpg",
     title: "F-001",
     type: "fucile",
     price: 130,
@@ -73,7 +73,7 @@ const fuciliData = [
   },
   {
     code: "F-001_1",
-    img: "https://i.ibb.co/QYPjfhF/F-001-1.jpg",
+    img: "https://i.ibb.co/QYPjfhF/F-017-1.jpg",
     title: "F-001",
     type: "fucile",
     price: 100,
@@ -82,7 +82,7 @@ const fuciliData = [
   },
   {
     code: "F-001_2",
-    img: "https://i.ibb.co/PFHwFFt/F-001-2.jpg",
+    img: "https://i.ibb.co/PFHwFFt/F-017-2.jpg",
     title: "F-001",
     type: "fucile",
     price: 100,
@@ -91,7 +91,7 @@ const fuciliData = [
   },
   {
     code: "F-001_3",
-    img: "https://i.ibb.co/KywNr3t/F-001-3.jpg",
+    img: "https://i.ibb.co/KywNr3t/F-017-3.jpg",
     title: "F-001",
     type: "fucile",
     price: 100,
@@ -100,7 +100,7 @@ const fuciliData = [
   },
   {
     code: "F-001_4",
-    img: "https://i.ibb.co/2SwJLLw/F-001-4.jpg",
+    img: "https://i.ibb.co/2SwJLLw/F-017-4.jpg",
     title: "F-001",
     type: "fucile",
     price: 100,
@@ -109,7 +109,7 @@ const fuciliData = [
   },
   {
     code: "F-001_5",
-    img: "https://i.ibb.co/L0XpNbZ/F-001-5.jpg",
+    img: "https://i.ibb.co/L0XpNbZ/F-017-5.jpg",
     title: "F-001",
     type: "fucile",
     price: 100,
@@ -118,7 +118,7 @@ const fuciliData = [
   },
   {
     code: "F-001_6",
-    img: "https://i.ibb.co/SNm0qzB/F-001-6.jpg",
+    img: "https://i.ibb.co/SNm0qzB/F-017-6.jpg",
     title: "F-001",
     type: "fucile",
     price: 100,
