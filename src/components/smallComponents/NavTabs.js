@@ -6,7 +6,9 @@ import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
-//import TitlebarGridList from "../shopItems/TitlebarGridList";
+import Grid from "@material-ui/core/Grid";
+import ItemCardShop from "../smallComponents/ItemCardShop";
+import fuciliData from "../dataImg/titledata";
 
 function TabPanel(props) {
   const { children, value, index, deviceType, ...other } = props;
@@ -69,7 +71,7 @@ export default function ScrollableTabsButtonAuto(props) {
 
   return (
     <div className={classes.root}>
-      <AppBar position="static" color="default">
+      <AppBar position="sticky" color="default">
         <Tabs
           value={value}
           onChange={handleChange}
@@ -77,7 +79,7 @@ export default function ScrollableTabsButtonAuto(props) {
           textColor="primary"
           variant="scrollable"
           scrollButtons="auto"
-          aria-label="scrollable auto tabs example"
+          aria-label="scrollable auto tabs"
         >
           <LinkTab href="/shop" label="SHOP" {...a11yProps(0)} />
           <LinkTab href="/shop/fucili" label="FUCILI" {...a11yProps(1)} />
@@ -91,8 +93,28 @@ export default function ScrollableTabsButtonAuto(props) {
         </Tabs>
       </AppBar>
       <TabPanel value={value} index={0}>
-        {/* <TitlebarGridList deviceType={props.deviceType} /> */}
-        Item One
+        <Grid
+          container
+          direction="row"
+          justify="center"
+          alignItems="center"
+          spacing={3}
+        >
+          {fuciliData.map((fucile) => {
+            return fucile.code.substr(fucile.code.length - 2, 2) === "_0" ? (
+              <Grid item xs>
+                <ItemCardShop
+                  key={fucile.code}
+                  img={fucile.img}
+                  price={fucile.price}
+                  title={fucile.title}
+                  description={fucile.description}
+                  {...fucile}
+                />
+              </Grid>
+            ) : null;
+          })}
+        </Grid>
       </TabPanel>
       <TabPanel value={value} index={1}>
         Item Two
