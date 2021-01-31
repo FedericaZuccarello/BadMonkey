@@ -64,7 +64,11 @@ export default function ItemCardShop(p) {
           </Typography>
         </CardContent>
       </CardActionArea>
-      <CardFooterShop setShowLightBox={setShowLightbox} code={p.code} />
+      <CardFooterShop
+        setShowLightBox={setShowLightbox}
+        code={p.code}
+        title={p.title}
+      />
     </Card>
   );
 }
@@ -109,7 +113,7 @@ function CardFooterShop(p, { setShowLightBox = () => {} }) {
         aria-haspopup="true"
         onMouseEnter={handlePopoverOpen}
         onMouseLeave={handlePopoverClose}
-        href={`https://api.whatsapp.com/send?phone=393463995462&text=Salve,%20vorrei%20qualche%20informazione%20in%20merito%20al%20prodotto%20con%20il%20codice%20${p.code}.`}
+        href={`https://api.whatsapp.com/send?phone=393463995462&text=Salve,%20vorrei%20qualche%20informazione%20in%20merito%20al%20prodotto%20con%20il%20CODICE:%20${p.code}%20e%20NOME:%20${p.title}.`}
       >
         <ChatTwoToneIcon htmlColor="green" />
       </IconButton>
