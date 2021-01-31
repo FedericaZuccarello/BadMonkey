@@ -64,12 +64,12 @@ export default function ItemCardShop(p) {
           </Typography>
         </CardContent>
       </CardActionArea>
-      <CardFooterShop setShowLightBox={setShowLightbox} />
+      <CardFooterShop setShowLightBox={setShowLightbox} code={p.code} />
     </Card>
   );
 }
 
-function CardFooterShop({ setShowLightBox = () => {} }) {
+function CardFooterShop(p, { setShowLightBox = () => {} }) {
   const classes = useStyles();
   const handlerClick = (e) => {
     setShowLightBox(true);
@@ -77,6 +77,7 @@ function CardFooterShop({ setShowLightBox = () => {} }) {
   const [anchorEl, setAnchorEl] = React.useState(null);
 
   const handlePopoverOpen = (event) => {
+    //console.log(p.code);
     setAnchorEl(event.currentTarget);
   };
 
@@ -108,6 +109,7 @@ function CardFooterShop({ setShowLightBox = () => {} }) {
         aria-haspopup="true"
         onMouseEnter={handlePopoverOpen}
         onMouseLeave={handlePopoverClose}
+        href={`https://api.whatsapp.com/send?phone=393463995462&text=Salve,%20vorrei%20qualche%20informazione%20in%20merito%20al%20prodotto%20con%20il%20codice%20${p.code}.`}
       >
         <ChatTwoToneIcon htmlColor="green" />
       </IconButton>

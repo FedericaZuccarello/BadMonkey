@@ -65,7 +65,12 @@ function MainTemplate(props) {
             styles={styles}
             deviceType={deviceType}
           />
-          <WhatsappIcon distanzaBottom={"20px"} />
+          <WhatsappIcon
+            distanzaBottom={"20px"}
+            text={
+              "Salve,%20vorrei%20qualche%20informazione%20in%20merito%20al%20vostro%20negozio."
+            }
+          />
           <div style={contentStyle}>{props.children}</div>
         </>
       ) : (
@@ -75,7 +80,12 @@ function MainTemplate(props) {
       {!styles.showSidebar && (
         <>
           <div style={contentStyle}>{props.children}</div>
-          <WhatsappIcon distanzaBottom={"55px"} />
+          <WhatsappIcon
+            distanzaBottom={"55px"}
+            text={
+              "Salve,%20vorrei%20qualche%20informazione%20in%20merito%20al%20vostro%20negozio."
+            }
+          />
           <FooterMenu
             menuItems={menuItems}
             styles={styles}

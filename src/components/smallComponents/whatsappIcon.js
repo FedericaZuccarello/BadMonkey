@@ -2,7 +2,7 @@ import "../../App.css";
 export default function WhatsappIcon(props) {
   return (
     <a
-      href="https://api.whatsapp.com/send?phone=393463995462&text=Salve,%20vorrei%20qualche%20informazione%20in%20merito%20al%20vostro%20negozio."
+      href={`https://api.whatsapp.com/send?phone=393463995462&text=${props.text}`}
       style={{
         textDecoration: "none",
         position: "fixed",
