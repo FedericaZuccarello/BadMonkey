@@ -12,6 +12,7 @@ import Tooltip from "@material-ui/core/Tooltip";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import IconButton from "@material-ui/core/IconButton";
 import ShareIcon from "@material-ui/icons/Share";
+import CircularProgress from "@material-ui/core/CircularProgress";
 import FullscreenExitTwoToneIcon from "@material-ui/icons/FullscreenExitTwoTone";
 import Lightbox from "react-awesome-lightbox";
 import "react-awesome-lightbox/build/style.css";
@@ -35,7 +36,12 @@ export default function ItemCardShop(p) {
   return (
     <Card className={classes.root} key={p.key}>
       <CardActionArea>
-        <CardMedia component="img" alt={p.title} src={p.img} title={p.title} />
+        <CardMedia
+          component="img"
+          alt={p.title}
+          src={p.img ?? <CircularProgress />}
+          title={p.title}
+        />
         {showLightbox ? (
           <Lightbox
             allowRotate={false}
