@@ -15,11 +15,10 @@ import ShareIcon from "@material-ui/icons/Share";
 import FullscreenExitTwoToneIcon from "@material-ui/icons/FullscreenExitTwoTone";
 import Lightbox from "react-awesome-lightbox";
 import "react-awesome-lightbox/build/style.css";
-//import fuciliData from "../dataImg/titledata";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    maxWidth: 345,
+    maxWidth: 250,
   },
   popover: {
     pointerEvents: "none",
@@ -40,7 +39,7 @@ export default function ItemCardShop(p) {
         {showLightbox ? (
           <Lightbox
             allowRotate={false}
-            image={p.img}
+            images={p.imgs.map((img) => img)}
             onClose={() => {
               setShowLightbox(false);
             }}
@@ -54,7 +53,8 @@ export default function ItemCardShop(p) {
             {p.description}
           </Typography>
           <Typography variant="caption" color="textSecondary" component="p">
-            {`${p.price} euro`}
+            {`${p.price + 10} euro`}
+            {}
           </Typography>
         </CardContent>
       </CardActionArea>
