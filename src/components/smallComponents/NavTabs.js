@@ -8,7 +8,9 @@ import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
 import Grid from "@material-ui/core/Grid";
 import ItemCardShop from "../smallComponents/ItemCardShop";
-import fuciliData from "../dataImg/titledata";
+import fuciliData from "../dataImg/fuciliData";
+import pistoleData from "../dataImg/pistoleData";
+import { INSTOCK } from "../../type";
 
 function TabPanel(props) {
   const { children, value, index, deviceType, ...other } = props;
@@ -93,6 +95,9 @@ export default function ScrollableTabsButtonAuto(props) {
         </Tabs>
       </AppBar>
       <TabPanel value={value} index={0}>
+        Vetrina
+      </TabPanel>
+      <TabPanel value={value} index={1}>
         <Grid
           container
           direction="row"
@@ -101,7 +106,7 @@ export default function ScrollableTabsButtonAuto(props) {
           spacing={3}
         >
           {fuciliData.map((fucile) => {
-            return fucile.code.substr(fucile.code.length - 2, 2) === "_0" ? (
+            return fucile.code && fucile.inStock === INSTOCK.Si ? (
               <Grid item xs>
                 <ItemCardShop
                   key={fucile.code}
@@ -109,17 +114,36 @@ export default function ScrollableTabsButtonAuto(props) {
                   price={fucile.price}
                   title={fucile.title}
                   description={fucile.description}
+                  {...fucile}
                 />
               </Grid>
             ) : null;
           })}
         </Grid>
       </TabPanel>
-      <TabPanel value={value} index={1}>
-        Item Two
-      </TabPanel>
       <TabPanel value={value} index={2}>
-        Item Three
+        <Grid
+          container
+          direction="row"
+          justify="center"
+          alignItems="center"
+          spacing={3}
+        >
+          {pistoleData.map((pistola) => {
+            return pistola.code && pistola.inStock === INSTOCK.Si ? (
+              <Grid item xs>
+                <ItemCardShop
+                  key={pistola.code}
+                  img={pistola.img}
+                  price={pistola.price}
+                  title={pistola.title}
+                  description={pistola.description}
+                  {...pistola}
+                />
+              </Grid>
+            ) : null;
+          })}
+        </Grid>
       </TabPanel>
       <TabPanel value={value} index={3}>
         Item Four

@@ -12,11 +12,14 @@ import Tooltip from "@material-ui/core/Tooltip";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import IconButton from "@material-ui/core/IconButton";
 import ShareIcon from "@material-ui/icons/Share";
+import CircularProgress from "@material-ui/core/CircularProgress";
 import FullscreenExitTwoToneIcon from "@material-ui/icons/FullscreenExitTwoTone";
+import Lightbox from "react-awesome-lightbox";
+import "react-awesome-lightbox/build/style.css";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    maxWidth: 345,
+    maxWidth: 250,
   },
   popover: {
     pointerEvents: "none",
@@ -28,11 +31,26 @@ const useStyles = makeStyles((theme) => ({
 
 export default function ItemCardShop(p) {
   const classes = useStyles();
+  const [showLightbox, setShowLightbox] = React.useState(false);
 
   return (
     <Card className={classes.root} key={p.key}>
       <CardActionArea>
-        <CardMedia component="img" alt={p.title} src={p.img} title={p.title} />
+        <CardMedia
+          component="img"
+          alt={p.title}
+          src={p.img ?? <CircularProgress />}
+          title={p.title}
+        />
+        {showLightbox ? (
+          <Lightbox
+            allowRotate={false}
+            images={p.imgs.map((img) => img)}
+            onClose={() => {
+              setShowLightbox(false);
+            }}
+          />
+        ) : null}
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
             {p.title}
@@ -41,19 +59,20 @@ export default function ItemCardShop(p) {
             {p.description}
           </Typography>
           <Typography variant="caption" color="textSecondary" component="p">
-            {`${p.price} euro`}
+            {`${p.price + 10} euro`}
+            {}
           </Typography>
         </CardContent>
       </CardActionArea>
-      <CardFooterShop />
+      <CardFooterShop setShowLightBox={setShowLightbox} />
     </Card>
   );
 }
 
-function CardFooterShop() {
+function CardFooterShop({ setShowLightBox = () => {} }) {
   const classes = useStyles();
-  const handlerClick = () => {
-    alert("Ho cliccato");
+  const handlerClick = (e) => {
+    setShowLightBox(true);
   };
   const [anchorEl, setAnchorEl] = React.useState(null);
 
