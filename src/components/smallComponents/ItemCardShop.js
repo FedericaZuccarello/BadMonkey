@@ -20,6 +20,7 @@ import "react-awesome-lightbox/build/style.css";
 const useStyles = makeStyles((theme) => ({
   root: {
     maxWidth: 250,
+    minWidth: 250,
   },
   popover: {
     pointerEvents: "none",
@@ -35,36 +36,36 @@ export default function ItemCardShop(p) {
 
   return (
     <Card className={classes.root} key={p.key}>
-      <CardActionArea>
-        <CardMedia
-          component="img"
-          alt={p.title}
-          src={p.img ?? <CircularProgress />}
-          title={p.title}
+      <CardMedia
+        component="img"
+        alt={p.title}
+        src={p.img ?? <CircularProgress />}
+        title={p.title}
+      />
+      {showLightbox ? (
+        <Lightbox
+          allowRotate={false}
+          images={p.imgs.map((img) => img)}
+          onClose={() => {
+            setShowLightbox(false);
+          }}
         />
-        {showLightbox ? (
-          <Lightbox
-            allowRotate={false}
-            images={p.imgs.map((img) => img)}
-            onClose={() => {
-              setShowLightbox(false);
-            }}
-          />
-        ) : null}
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="h2">
-            {p.title}
-          </Typography>
-          <Typography variant="body2" color="textSecondary" component="p">
-            {p.description}
-          </Typography>
-          <Typography variant="caption" color="textSecondary" component="p">
-            {`${p.price + 10} euro`}
-            {}
-          </Typography>
-        </CardContent>
+      ) : null}
+
+      <CardContent>
+        <Typography gutterBottom variant="subtitle1" component="h2">
+          {p.title}
+        </Typography>
+        <Typography variant="body2" color="textSecondary" component="p">
+          {p.description}
+        </Typography>
+        <Typography variant="caption" color="textSecondary" component="p">
+          {`${p.price + 10} euro`}
+        </Typography>
+      </CardContent>
+      <CardActionArea>
+        <CardFooterShop setShowLightBox={setShowLightbox} />
       </CardActionArea>
-      <CardFooterShop setShowLightBox={setShowLightbox} />
     </Card>
   );
 }
@@ -92,11 +93,11 @@ function CardFooterShop({ setShowLightBox = () => {} }) {
           <FullscreenExitTwoToneIcon />
         </IconButton>
       </Tooltip>
-      <Tooltip title="Aggiungi ai preferiti" arrow>
+      {/* <Tooltip title="Aggiungi ai preferiti" arrow>
         <IconButton aria-label="add to favorites">
           <FavoriteIcon />
         </IconButton>
-      </Tooltip>
+      </Tooltip> */}
       <Tooltip title="Condividi" arrow>
         <IconButton aria-label="share">
           <ShareIcon />

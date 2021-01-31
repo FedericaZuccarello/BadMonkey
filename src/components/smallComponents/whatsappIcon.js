@@ -1,8 +1,10 @@
 import "../../App.css";
+import Fab from "@material-ui/core/Fab";
+import WhatsAppIcon from "@material-ui/icons/WhatsApp";
+import Tooltip from "@material-ui/core/Tooltip";
 export default function WhatsappIcon(props) {
   return (
-    <a
-      href="https://api.whatsapp.com/send?phone=393463995462&text=Salve,%20vorrei%20qualche%20informazione%20in%20merito%20al%20vostro%20negozio."
+    <Fab
       style={{
         textDecoration: "none",
         position: "fixed",
@@ -16,15 +18,14 @@ export default function WhatsappIcon(props) {
         boxShadow: "2px 2px 2px #999",
         zIndex: "100",
       }}
-      target="_blank"
-      rel="noreferrer"
+      aria-label="add"
+      href={
+        "https://api.whatsapp.com/send?phone=393463995462&text=Salve,%20vorrei%20qualche%20informazione."
+      }
     >
-      <img
-        src="https://i.ibb.co/N9P0K9H/239px-Whats-App-svg.png"
-        width="60"
-        height="60"
-        alt="WhatsappIcon"
-      />
-    </a>
+      <Tooltip title="Hai bisogno di aiuto?" arrow>
+        <WhatsAppIcon fontSize="large" />
+      </Tooltip>
+    </Fab>
   );
 }
