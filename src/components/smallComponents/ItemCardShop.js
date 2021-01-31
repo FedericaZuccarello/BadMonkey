@@ -16,6 +16,7 @@ import CircularProgress from "@material-ui/core/CircularProgress";
 import FullscreenExitTwoToneIcon from "@material-ui/icons/FullscreenExitTwoTone";
 import Lightbox from "react-awesome-lightbox";
 import "react-awesome-lightbox/build/style.css";
+import ShareDialog from "./ShareDialog";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -99,9 +100,7 @@ function CardFooterShop({ setShowLightBox = () => {} }) {
         </IconButton>
       </Tooltip> */}
       <Tooltip title="Condividi" arrow>
-        <IconButton aria-label="share">
-          <ShareIcon />
-        </IconButton>
+        <ShareDialog />
       </Tooltip>
       <IconButton
         aria-label="chat"
